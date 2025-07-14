@@ -35,6 +35,6 @@ function lenientScoring(correct, user) {
 }
 
 function checkScore() {
-  const score = calculateScore(strictScoring); // You can switch to lenientScoring
+  const score = calculateScore(strictScoring); 
   document.getElementById("score").innerText = `Your Score: ${score} / 3`;
 }
