@@ -3,33 +3,32 @@
 <head>
   <meta charset="UTF-8" />
   <title>QuizMaster</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="quiz-container">
-    <h1>QuizMaster</h1>
 
-    <div class="question">
-      <label>1. Who is Kamal Hassan?</label>
-      <input type="text" id="q1" />
-    </div>
+  <h1>QuizMaster</h1>
 
-    <div class="question">
-      <label>2. Who is the God Father of World Cinema?</label>
-      <input type="text" id="q2" />
-    </div>
-
-    <div class="question">
-      <label>3. Greatest actor in the world?</label>
-      <input type="text" id="q3" />
-    </div>
-
-    <button onclick="calculateScore(strictScoring)">Strict Scoring</button>
-    <button onclick="calculateScore(lenientScoring)">Lenient Scoring</button>
-    
-    <p id="scoreDisplay">Your score will appear here.</p>
+  <div class="question">
+    <label for="q1">1. Who is Kamal Hassan ?</label>
+    <input type="text" id="q1" placeholder="Your answer" />
   </div>
 
+  <div class="question">
+    <label for="q2">2. Who is the God father of Indian Cinema ?</label>
+    <input type="text" id="q2" placeholder="Your answer" />
+  </div>
+
+  <div class="question">
+    <label for="q3">3. Who is the best actor in the world ?</label>
+    <input type="text" id="q3" placeholder="Your answer" />
+  </div>
+
+  <button id="checkScoreBtn">Check Score</button>
+
+  <div id="score"></div>
+
   <script src="script.js"></script>
+
 </body>
 </html>
