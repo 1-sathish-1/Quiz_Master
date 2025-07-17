@@ -11,16 +11,20 @@ function calculateScore(callback) {
 
 function strictScoring(answers) {
   let score = 0;
-  if (answers.q1.toLowerCase() === "Vinnveli Nayagan") score++;
-  if (answers.q2.toLowerCase() === "Kamal Hassan") score++;
-  if (answers.q3.toLowerCase() === "Kamal Hassan") score++;
+  if (answers.q1.toLowerCase() === "vinnveli nayagan") score++;
+  if (answers.q2.toLowerCase() === "kamal hassan") score++;
+  if (answers.q3.toLowerCase() === "kamal hassan") score++;
   return score;
 }
 
+
 function lenientScoring(answers) {
   let score = 0;
-  if (answers.q1.toLowerCase().includes("Vinnveli Nayagan")) score++;
-  if (answers.q2.toLowerCase().includes("Kamal Hassan")) score++;
-  if (answers.q3.toLowerCase().includes("Kamal Hassan") || answers.q3.toLowerCase().includes("Aandavar")) score++;
+  if (answers.q1.toLowerCase().includes("vinnveli nayagan")) score++;
+  if (answers.q2.toLowerCase().includes("kamal hassan")) score++;
+  if (
+    answers.q3.toLowerCase().includes("kamal hassan") ||
+    answers.q3.toLowerCase().includes("aandavar")
+  ) score++;
   return score;
-}
+
