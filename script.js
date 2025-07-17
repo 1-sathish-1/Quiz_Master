@@ -6,7 +6,8 @@ function calculateScore(callback) {
   };
 
   const score = callback(answers);
-  document.getElementById('scoreDisplay').innerText = `Your Score: ${score} / 3`;
+  const method = callback.name === "strictScoring" ? "Strict" : "Lenient";
+  document.getElementById('scoreDisplay').innerText = `${method} Scoring: Your Score: ${score} / 3`;
 }
 
 function strictScoring(answers) {
@@ -17,7 +18,6 @@ function strictScoring(answers) {
   return score;
 }
 
-
 function lenientScoring(answers) {
   let score = 0;
   if (answers.q1.toLowerCase().includes("vinnveli nayagan")) score++;
@@ -27,4 +27,4 @@ function lenientScoring(answers) {
     answers.q3.toLowerCase().includes("aandavar")
   ) score++;
   return score;
-
+}
