@@ -1,9 +1,12 @@
 body {
   font-family: 'Segoe UI', sans-serif;
-  background-color: #fef6e4; 
+  background-color: #fef6e4;
   padding: 40px;
   display: flex;
   justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
 }
 
 .quiz-container {
@@ -17,6 +20,7 @@ body {
 h1 {
   text-align: center;
   color: #4a4e69;
+  margin-bottom: 25px;
 }
 
 .question {
@@ -52,7 +56,11 @@ button {
 }
 
 button:hover {
-  background-color: #e07a5f; 
+  background-color: #e07a5f;
+}
+
+button + button {
+  margin-top: 10px;
 }
 
 #scoreDisplay {
