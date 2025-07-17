@@ -1,30 +1,34 @@
-function calculateScore(callback) {
+function calculateScore(evaluateFn) {
   const answers = {
-    q1: document.getElementById('q1').value.trim(),
-    q2: document.getElementById('q2').value.trim(),
-    q3: document.getElementById('q3').value.trim(),
+    q1: "Vinnveli Nayagan",
+    q2: "Kamal Hassan",
+    q3: "Kamal Hassan"
   };
-
-  const score = callback(answers);
-  const method = callback.name === "strictScoring" ? "Strict" : "Lenient";
-  document.getElementById('scoreDisplay').innerText = `${method} Scoring: Your Score: ${score} / 3`;
-}
-
-function strictScoring(answers) {
   let score = 0;
-  if (answers.q1.toLowerCase() === "vinnveli nayagan") score++;
-  if (answers.q2.toLowerCase() === "kamal hassan") score++;
-  if (answers.q3.toLowerCase() === "kamal hassan") score++;
+
+  for (const [key, correctAnswer] of Object.entries(answers)) {
+    const userAnswer = document.getElementById(key).value.trim().toLowerCase();
+    if (evaluateFn(userAnswer, correctAnswer)) {
+      score++;
+    }
+  }
+
   return score;
 }
 
-function lenientScoring(answers) {
-  let score = 0;
-  if (answers.q1.toLowerCase().includes("vinnveli nayagan")) score++;
-  if (answers.q2.toLowerCase().includes("kamal hassan")) score++;
-  if (
-    answers.q3.toLowerCase().includes("kamal hassan") ||
-    answers.q3.toLowerCase().includes("aandavar")
-  ) score++;
-  return score;
+function strictScoring(userAnswer, correctAnswer) {
+  return userAnswer === correctAnswer;
 }
+
+function lenientScoring(userAnswer, correctAnswer) {
+  return correctAnswer.includes(userAnswer) && userAnswer.length > 0;
+}
+
+const btn = document.getElementById("checkScoreBtn");
+const scoreDisplay = document.getElementById("score");
+
+btn.addEventListener("click", () => {
+
+  const score = calculateScore(strictScoring);
+  scoreDisplay.textContent = `Your score is: ${score} / 3`;
+});
